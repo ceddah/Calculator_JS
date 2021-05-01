@@ -12,12 +12,12 @@
     <article id="calculator">
         <div class="display">
             <span class="current-operator"></span>
-            <input type="text" name="output" id="output">
+            <input type="text" name="output" id="output" value="0">
         </div>
         <section id="buttons">
-                <button class="utility-btn">AC</button>
-                <button class="utility-btn">C</button>
-                <button class="utility-btn"><i class="fas fa-backspace"></i></button>
+                <button class="utility-btn clear-all">AC</button>
+                <button class="utility-btn clear-current">C</button>
+                <button class="utility-btn deleteLast"><i class="fas fa-backspace"></i></button>
                 <button class="operator" data-value="/"><i class="fas fa-divide"></i></button>
                 <button class="numbers">7</button>
                 <button class="numbers">8</button>
@@ -31,9 +31,9 @@
                 <button class="numbers">2</button>
                 <button class="numbers">3</button>
                 <button class="operator" data-value="+"><i class="fas fa-plus"></i></button>
-                <button class="numbers">+ -</button>
+                <button class="negative-value">+ -</button>
                 <button class="numbers">0</button>
-                <button class="numbers" data-value="."><i class="fas fa-circle"></i></button>
+                <button class="numbers comma" data-value="."><i class="fas fa-circle"></i></button>
                 <button class="equal"><i class="fas fa-equals"></i></button>
             </div>
         </section>

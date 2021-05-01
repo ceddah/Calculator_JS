@@ -5,6 +5,7 @@ const utilityBtns = document.querySelectorAll('.utility-btn');
 const operatorBtns = document.querySelectorAll('.operator');
 const numbers = document.querySelectorAll('.numbers');
 const equal = document.querySelector('.equal');
+const turnNegative = document.querySelector('.negative-value');
 
 let firstValue = undefined;
 let secondValue = undefined;
@@ -14,20 +15,31 @@ let operator = undefined;
 numbers.forEach(number => number.addEventListener('click', updateOutput));
 operatorBtns.forEach(operator => operator.addEventListener('click', updateOperator));
 equal.addEventListener('click', () => { calculate() })
+utilityBtns.forEach(btn => btn.addEventListener('click', utilities));
+turnNegative.addEventListener('click', () => turnNumNegative(+output.value));
+
+// toFixed if its huge number
 
 //Functions
-
 function updateOutput(e) {
+    if(output.value == '0') output.value = '';
+
     output.value += e.target.textContent;
-    //Proveriti da li output sadrzi tacku, ako ne dodaj je ako da return.
+
+    if(checkClass(e.currentTarget, 'comma')) {
+        if(output.value.includes('.')) return;
+        output.value += '.';
+    }
+
 }
 
 function updateOperator(e) {
-    if(output.value == '') return;
-    firstValue = +output.value;
-    const data = e.target.dataset.value;
+    if(output.value !== '0' && output.value !== '.' && !firstValue) {
+        firstValue = +output.value;
+    const data = e.currentTarget.dataset.value;
+
     prevValue.innerHTML = `${firstValue} ${data}`;
-    
+
     switch(data) {
         case '+':
             operator = addition();
@@ -43,14 +55,39 @@ function updateOperator(e) {
             break;
     }
 
-    output.value = '';
+    output.value = '0';
+    };
 }
 
 function calculate() {
-    if(output.value == '') return;
-    secondValue = +output.value;
-    operator(firstValue, secondValue);
-    returnDefault();
+    if(output.value !== '0') {
+        secondValue = +output.value;
+        if(firstValue && secondValue) {
+            operator(firstValue, secondValue);
+            returnDefault();
+        }
+    };
+}
+
+function utilities(e) {
+    if(checkClass(e.currentTarget, 'clear-all')) {
+        returnDefault();
+        output.value = '0';
+    } else if(checkClass(e.currentTarget, 'clear-current')) {
+        output.value = '0';
+    } else {
+        if(output.value.length > 1) {
+            output.value = output.value.slice(0, output.value.length - 1);
+        } else {
+            output.value = '0';
+        }
+    }
+}
+
+function turnNumNegative(number) {
+    if(number !== 0) {
+        output.value = number * -1;
+    }
 }
 
 function addition() {
@@ -65,18 +102,36 @@ function subtraction() {
 }
 function multiplication() {
     return function(a,b) {
-        output.value = a * b;
+        const result = a * b;
+        isFloat(result);
     }
 }
 function division() {
     return function(a,b) {
-        output.value = a / b;
+        const result = a / b;
+        isFloat(result);
     }
 }
 
 function returnDefault() {
-    let firstValue = undefined;
-    let secondValue = undefined;
-    let operator = undefined;
+    firstValue = undefined;
+    secondValue = undefined;
+    operator = undefined;
     prevValue.innerHTML = '';
+}
+
+function checkClass(element, className) {
+    if(element.classList.contains(className)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isFloat(n){
+    if(Number(n) === n && n % 1 !== 0) {
+        output.value = n.toFixed(2);
+    } else {
+        output.value = n;
+    }
 }

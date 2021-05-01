@@ -104,7 +104,6 @@ body {
 
 #calculator #buttons .numbers {
     border: none;
-    /* border: 1px solid var(--bg-color); */
     background-color: #fff;
     transition: background-color 0.1s ease-in-out;
 }
@@ -126,6 +125,16 @@ body {
     transform: scale(1.15);
     transition: background-color 0.2s ease-in-out;
 }
+
+#calculator #buttons .negative-value {
+    border: none;
+    background-color: #fff;
+    transition: background-color 0.1s ease-in-out;
+}
+#calculator #buttons .negative-value:hover {
+    background-color: rgb(245, 243, 243);
+}
+
 #calculator #buttons .equal:hover {
     background-color: #f15454;
 }
