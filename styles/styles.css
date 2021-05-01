@@ -88,6 +88,7 @@ body {
 #calculator #buttons .operator:hover,
 #calculator #buttons .utility-btn:hover {
     background-color: #cfd6da;
+    color: var(--output-color)
 }
 
 #calculator #buttons .utility-btn {
