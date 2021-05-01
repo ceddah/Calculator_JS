@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <title>Calculator Project</title>
 </head>
 <body>
@@ -13,36 +14,27 @@
             <span class="current-operator">35 +</span>
             <input type="text" name="output" id="output" value="35">
         </div>
-        <!-- 5 cols 4 rows -->
         <section id="buttons">
-            <!-- col 1 - 4 -->
-            <div class="utility">
-                <button class="utility-btn">CE</button>
+                <button class="utility-btn">AC</button>
                 <button class="utility-btn">C</button>
-                <button class="utility-btn">Del</button>
-            </div>
-            <!-- col 4 - row 1 - 6 -->
-            <div class="operators">
-                <button class="operator" data-value="%">%</button>
-                <button class="operator" data-value="*">X</button>
-                <button class="operator" data-value="-">-</button>
-                <button class="operator" data-value="+">+</button>
-                <button class="equal">=</button>
-            </div>
-            <!-- col 1 - 4 , row 2 - 6 -->
-            <div class="numbers">
+                <button class="utility-btn"><i class="fas fa-backspace"></i></button>
+                <button class="operator" data-value="%"><i class="fas fa-divide"></i></button>
                 <button class="numbers">7</button>
                 <button class="numbers">8</button>
                 <button class="numbers">9</button>
+                <button class="operator" data-value="*"><i class="fas fa-times"></i></button>
                 <button class="numbers">4</button>
                 <button class="numbers">5</button>
                 <button class="numbers">6</button>
+                <button class="operator" data-value="-"><i class="fas fa-minus"></i></button>
                 <button class="numbers">1</button>
                 <button class="numbers">2</button>
                 <button class="numbers">3</button>
+                <button class="operator" data-value="+"><i class="fas fa-plus"></i></button>
                 <button class="numbers">+-</button>
                 <button class="numbers">0</button>
-                <button class="numbers">.</button>
+                <button class="numbers" data-value="."><i class="fas fa-circle"></i></button>
+                <button class="equal"><i class="fas fa-equals"></i></button>
             </div>
         </section>
     </article>
