@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Calculator Project</title>
+</head>
+<body>
+    <article id="calculator">
+        <div class="display">
+            <span class="current-operator">35 +</span>
+            <input type="text" name="output" id="output" value="35">
+        </div>
+        <!-- 5 cols 4 rows -->
+        <section id="buttons">
+            <!-- col 1 - 4 -->
+            <div class="utility">
+                <button class="utility-btn">CE</button>
+                <button class="utility-btn">C</button>
+                <button class="utility-btn">Del</button>
+            </div>
+            <!-- col 4 - row 1 - 6 -->
+            <div class="operators">
+                <button class="operator" data-value="%">%</button>
+                <button class="operator" data-value="*">X</button>
+                <button class="operator" data-value="-">-</button>
+                <button class="operator" data-value="+">+</button>
+                <button class="equal">=</button>
+            </div>
+            <!-- col 1 - 4 , row 2 - 6 -->
+            <div class="numbers">
+                <button class="numbers">7</button>
+                <button class="numbers">8</button>
+                <button class="numbers">9</button>
+                <button class="numbers">4</button>
+                <button class="numbers">5</button>
+                <button class="numbers">6</button>
+                <button class="numbers">1</button>
+                <button class="numbers">2</button>
+                <button class="numbers">3</button>
+                <button class="numbers">+-</button>
+                <button class="numbers">0</button>
+                <button class="numbers">.</button>
+            </div>
+        </section>
+    </article>
+ 
+    <script src="./script.js"></script>
+</body>
+</html>

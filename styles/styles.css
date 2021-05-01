@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+    --bg-color: #DDE3E6;
+    --output-color: #788e9b;
+    --equal-btn: #FC6464;
+    --buttons-color: #96A6AC;
+    --box-shadow-color: #CAB9B9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculator {
+    border: 1px solid #000;
+    width: 280px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#calculator .display {
+    flex: 0.3;
+    background-color: var(--output-color);
+    position: relative;
+}
+
+#calculator .display #output {
+    margin-top: 5rem;
+    height: 2rem;
+    width: 100%;
+    padding: 0px 1rem;
+    text-align: right;
+    font-size: 1.7rem;
+    color: #fff;
+    font-weight: 900;
+    outline: none;
+    border: none;
+    pointer-events: none;
+    background-color: var(--output-color);
+}
+
+#calculator .display .current-operator {
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+    color: #fff;
+    font-weight: 300;
+}
+
+#calculator #buttons {
+    flex: 0.7;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 'CE C Del divide';
+}
+
+#calculator #buttons .utility {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#calculator #buttons .operators {
+    grid-column: 5;
+    grid-row: 1 / span 6;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    grid-template-rows: repeat(1, 5fr);
+}
+
+#calculator #buttons .numbers {
+    grid-column: 1 / 4;
+    grid-row: 2 / span 6;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
