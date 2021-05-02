@@ -17,11 +17,11 @@ operatorBtns.forEach(operator => operator.addEventListener('click', updateOperat
 equal.addEventListener('click', () => { calculate() })
 utilityBtns.forEach(btn => btn.addEventListener('click', utilities));
 turnNegative.addEventListener('click', () => turnNumNegative(+output.value));
-
-// toFixed if its huge number
+window.addEventListener('keydown', kBoardSupport);
 
 //Functions
 function updateOutput(e) {
+    //Remove the zero when we start entering values.
     if(output.value == '0') output.value = '';
 
     output.value += e.target.textContent;
@@ -84,6 +84,7 @@ function utilities(e) {
     }
 }
 
+
 function turnNumNegative(number) {
     if(number !== 0) {
         output.value = number * -1;
@@ -135,3 +136,33 @@ function isFloat(n){
         output.value = n;
     }
 }
+
+function kBoardSupport(e) {
+    operatorBtns.forEach(operator => {
+        const data = operator.dataset.value;
+        if(e.key == data) {
+           operator.click();
+        }
+    })
+    numbers.forEach(number => {
+        const numberInfo = number.textContent;
+        if(e.key == numberInfo) {
+            number.click();
+        } else if(e.key == '.') {
+            if(output.value.includes('.')) return;
+            output.value += '.';
+        }
+    })
+    if(e.key == 'Enter') {
+        calculate();
+    } else if(e.key == 'Backspace') {
+        if(output.value.length > 1) {
+            output.value = output.value.slice(0, output.value.length - 1);
+        } else {
+            output.value = '0';
+        }
+    }
+}
+
+
+//LOOP through all the buttons, if e.key == to dataset of buttons, we querySelector([data-value=${e.key}]).click()
