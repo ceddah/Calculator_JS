@@ -163,6 +163,3 @@ function kBoardSupport(e) {
         }
     }
 }
-
-
-//LOOP through all the buttons, if e.key == to dataset of buttons, we querySelector([data-value=${e.key}]).click()
